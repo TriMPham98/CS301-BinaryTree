@@ -65,7 +65,7 @@ bool TreeT<T>::Contains(T value) {
         } else if (value > curr->value) {
             curr = curr->right;
         } else {
-
+            return true;
         }
     }
     return false;
