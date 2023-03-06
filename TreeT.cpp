@@ -85,7 +85,10 @@ void TreeT<T>::ResetIterator(Order traverseOrder) {
 
 template<class T>
 T TreeT<T>::GetNextItem() {
-    return nullptr;
+    T nextItem = iterQue.front();
+    iterQue.pop();
+
+    return nextItem;
 }
 
 template<class T>
