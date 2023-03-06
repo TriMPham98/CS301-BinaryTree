@@ -78,7 +78,9 @@ int TreeT<T>::Size() {
 
 template<class T>
 void TreeT<T>::ResetIterator(Order traverseOrder) {
-
+    if (traverseOrder == IN_ORDER) {
+        PlaceInOrder(root);
+    }
 }
 
 template<class T>
