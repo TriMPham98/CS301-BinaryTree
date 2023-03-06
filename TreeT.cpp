@@ -122,7 +122,13 @@ void TreeT<T>::CopyHelper(TreeT::Node *&thisTree, TreeT::Node *otherTree) {
 
 template<class T>
 void TreeT<T>::PlacePreOrder(TreeT::Node *node) {
+    if (node == nullptr) {
+        return;
+    }
 
+    iterQue.push(node->value);
+    PlacePreOrder((node->left));
+    PlacePreOrder(node->right);
 }
 
 template<class T>
