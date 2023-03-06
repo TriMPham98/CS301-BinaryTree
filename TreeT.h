@@ -52,7 +52,7 @@ private:
     void CopyHelper(Node*& thisTree, Node* otherTree);
 
     // Used for iterator
-    queue<T> iterArr;     // queue used for the iterator
+    queue<T> iterQue;     // queue used for the iterator
     void PlacePreOrder(Node* node);
     void PlacePostOrder(Node* node);
     void PlaceInOrder(Node* node);
