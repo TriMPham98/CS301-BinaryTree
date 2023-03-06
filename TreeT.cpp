@@ -80,6 +80,10 @@ template<class T>
 void TreeT<T>::ResetIterator(Order traverseOrder) {
     if (traverseOrder == IN_ORDER) {
         PlaceInOrder(root);
+    } else if (traverseOrder == PRE_ORDER) {
+        PlacePreOrder(root);
+    } else if (traverseOrder == POST_ORDER) {
+        PlacePostOrder(root);
     }
 }
 
