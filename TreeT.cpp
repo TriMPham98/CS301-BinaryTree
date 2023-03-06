@@ -133,7 +133,13 @@ void TreeT<T>::PlacePreOrder(TreeT::Node *node) {
 
 template<class T>
 void TreeT<T>::PlacePostOrder(TreeT::Node *node) {
+    if (node == nullptr) {
+        return;
+    }
 
+    PlacePostOrder((node->left));
+    PlacePostOrder(node->right);
+    iterQue.push(node->value);
 }
 
 template<class T>
