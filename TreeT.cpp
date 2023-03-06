@@ -125,5 +125,11 @@ void TreeT<T>::PlacePostOrder(TreeT::Node *node) {
 
 template<class T>
 void TreeT<T>::PlaceInOrder(TreeT::Node *node) {
+    if (node == nullptr) {
+        return;
+    }
 
+    PlaceInOrder((node->left));
+    iterQue.push(node->value);
+    PlaceInOrder(node->right);
 }
