@@ -10,7 +10,7 @@
 using namespace std;
 
 // Used to identify the order you wish to traverse the tree
-enum Order {POST_ORDER, IN_ORDER, PRE_ORDER};
+enum Order {POST_ORDER, IN_ORDER, PRE_ORDER}; // Used as a flag
             //  0           1          2
 
 template<class T>
