@@ -116,7 +116,10 @@ void TreeT<T>::DeleteNode(TreeT::Node *&subtree) {
 
 template<class T>
 void TreeT<T>::GetPredecessor(TreeT::Node *curr, T &value) {
-
+    while (curr->right != nullptr) {
+        curr = curr->right;
+    }
+    value = curr->value;
 }
 
 template<class T>
