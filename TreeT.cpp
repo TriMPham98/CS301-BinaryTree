@@ -6,7 +6,7 @@ TreeT<T>::TreeT() {
 
 template<class T>
 TreeT<T>::~TreeT() {
-
+    DestroyTree(root);
 }
 
 template<class T>
