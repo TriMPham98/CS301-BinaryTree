@@ -106,7 +106,17 @@ void TreeT<T>::DestroyTree(TreeT::Node *node) {
 
 template<class T>
 void TreeT<T>::RemoveHelper(TreeT::Node *&subtree, T value) {
-
+    if (subtree == nullptr) {
+        return;
+    }
+    if (value < subtree->value) {
+        RemoveHelper(subtree->left, value);
+    } else if (value > subtree->value) {
+        RemoveHelper(subtree->right, value);
+    } else {
+        DeleteNode(subtree);
+        numNodes--;
+    }
 }
 
 template<class T>
