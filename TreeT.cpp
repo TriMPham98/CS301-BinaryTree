@@ -53,7 +53,7 @@ void TreeT<T>::Add(T value) {
 
 template<class T>
 void TreeT<T>::Remove(T value) {
-
+    RemoveHelper(root, value);
 }
 
 template<class T>
