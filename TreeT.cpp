@@ -121,7 +121,14 @@ void TreeT<T>::GetPredecessor(TreeT::Node *curr, T &value) {
 
 template<class T>
 void TreeT<T>::CopyHelper(TreeT::Node *&thisTree, TreeT::Node *otherTree) {
-
+    if (otherTree == nullptr) {
+        thisTree = nullptr;
+    } else {
+        thisTree = new Node;
+        thisTree->value = otherTree->value;
+        CopyHelper(thisTree->left, otherTree->left);
+        CopyHelper(thisTree->right, otherTree->right);
+    }
 }
 
 template<class T>
