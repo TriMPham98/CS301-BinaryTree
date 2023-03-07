@@ -101,7 +101,11 @@ T TreeT<T>::GetNextItem() {
 
 template<class T>
 void TreeT<T>::DestroyTree(TreeT::Node *node) {
-
+    if (node != nullptr) {
+        DestroyTree(node->left);
+        DestroyTree(node->right);
+        delete node;
+    }
 }
 
 template<class T>
