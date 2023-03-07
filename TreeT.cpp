@@ -11,7 +11,12 @@ TreeT<T>::~TreeT() {
 
 template<class T>
 TreeT<T> &TreeT<T>::operator=(const TreeT &otherTree) {
-    return TreeT<T>();
+    if (this != &otherTree) {
+        DestroyTree(root);
+        CopyHelper(root, otherTree.root);
+        numNodes = otherTree.numNodes;
+    }
+    return *this;
 }
 
 template<class T>
