@@ -73,7 +73,7 @@ bool TreeT<T>::Contains(T value) {
 
 template<class T>
 int TreeT<T>::Size() {
-    return 0;
+    return numNodes;
 }
 
 template<class T>
