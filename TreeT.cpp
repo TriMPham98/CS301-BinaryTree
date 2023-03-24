@@ -9,14 +9,19 @@ TreeT<T>::TreeT() {
 
 template<class T>
 TreeT<T>::~TreeT() {
+    // Call DestroyTree method to delete the tree
     DestroyTree(root);
 }
 
 template<class T>
 TreeT<T> &TreeT<T>::operator=(const TreeT &otherTree) {
+    // Check if the current object is not the same as the other object
     if (this != &otherTree) {
+        // Destroy the current tree
         DestroyTree(root);
+        // Copy the other tree using CopyHelper method
         CopyHelper(root, otherTree.root);
+        // Assign the number of nodes from the other tree
         numNodes = otherTree.numNodes;
     }
     return *this;
