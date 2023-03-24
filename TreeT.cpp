@@ -125,14 +125,17 @@ void TreeT<T>::ResetIterator(Order traverseOrder) {
 
 template<class T>
 T TreeT<T>::GetNextItem() {
+    // Get the next item from the iterator queue
     T nextItem = iterQue.front();
     iterQue.pop();
 
+    // Return the next item
     return nextItem;
 }
 
 template<class T>
 void TreeT<T>::DestroyTree(TreeT::Node *node) {
+    // Recursively delete the nodes in the tree using post-order traversal
     if (node != nullptr) {
         DestroyTree(node->left);
         DestroyTree(node->right);
