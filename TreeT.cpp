@@ -24,43 +24,53 @@ TreeT<T> &TreeT<T>::operator=(const TreeT &otherTree) {
         // Assign the number of nodes from the other tree
         numNodes = otherTree.numNodes;
     }
+    // Return the reference to the current object
     return *this;
 }
 
 template<class T>
 void TreeT<T>::Add(T value) {
-
+    // Create a new node with the given value
     Node *newChild = new Node;
     newChild->left = nullptr;
     newChild->right = nullptr;
     newChild->value = value;
 
+    // Check if the tree is empty
     if (root == nullptr) {
+        // Set the new node as the root
         root = newChild;
+        // Increment the number of nodes
         numNodes++;
         return;
     }
+
+    // Start at the root node
     Node *curr = root;
 
+    // Traverse the tree to find the correct position for the new node
     while (true) {
         if (value < curr->value) {
             if (curr->left == nullptr) {
+                // Insert the new node as the left child
                 curr->left = newChild;
                 break;
             }
-            // Move curr left
+            // Move to the left child
             curr = curr->left;
         } else {
             if (value > curr->value) {
                 if (curr->right == nullptr) {
+                    // Insert the new node as the right child
                     curr->right = newChild;
                     break;
                 }
-                // Move curr right
+                // Move to the right child
                 curr = curr->right;
             }
         }
     }
+    // Incrememnt the number of nodes
     numNodes++;
 }
 
