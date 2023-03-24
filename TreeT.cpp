@@ -103,15 +103,17 @@ bool TreeT<T>::Contains(T value) {
 
 template<class T>
 int TreeT<T>::Size() {
+    // Return the number of nodes in the tree
     return numNodes;
 }
 
 template<class T>
 void TreeT<T>::ResetIterator(Order traverseOrder) {
+    // Clear the iterator queue
     while (!iterQue.empty()) {
         iterQue.pop();
     }
-
+    // Call the appropriate traversal method based on the given order
     if (traverseOrder == IN_ORDER) {
         PlaceInOrder(root);
     } else if (traverseOrder == PRE_ORDER) {
