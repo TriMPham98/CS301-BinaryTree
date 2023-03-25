@@ -16,10 +16,12 @@ int main(void) {
 
     TreeT<int>* tree = new TreeT<int>;
 
+    tree->Add(20);
     tree->Add(5);
     tree->Add(1);
     tree->Add(10);
     tree->Add(2);
+    tree->Add(15);
 
     tree->ResetIterator(IN_ORDER);
     for (int i = 0; i < tree->Size(); i++) {
