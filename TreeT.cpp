@@ -156,13 +156,13 @@ void TreeT<T>::RemoveHelper(TreeT::Node *&subtree, T value) {
     // search the left subtree
     if (value < subtree->value) {
         RemoveHelper(subtree->left, value);
-    // If the value is greater than the current subtree's value,
-    // search the right subtree
+        // If the value is greater than the current subtree's value,
+        // search the right subtree
     } else if (value > subtree->value) {
         RemoveHelper(subtree->right, value);
-    // If the value matches the current subtree's value,
-    // delete the node and decrement the number of nodes
-    // after removal
+        // If the value matches the current subtree's value,
+        // delete the node and decrement the number of nodes
+        // after removal
     } else {
         DeleteNode(subtree);
         numNodes--;
@@ -180,13 +180,13 @@ void TreeT<T>::DeleteNode(TreeT::Node *&subtree) {
         temp = subtree;
         subtree = subtree->right;
         delete temp;
-    // If the node has no right child, replace the node with its left subtree
+        // If the node has no right child, replace the node with its left subtree
     } else if (subtree->right == nullptr) {
         temp = subtree;
         subtree = subtree->left;
         delete temp;
-   // If the node has both left and right children, replace the node's value
-   // with its predecessor's value
+        // If the node has both left and right children, replace the node's value
+        // with its predecessor's value
     } else {
         GetPredecessor(subtree->left, subtree->value);
         RemoveHelper(subtree->left, subtree->value);
@@ -211,7 +211,7 @@ void TreeT<T>::CopyHelper(TreeT::Node *&thisTree, TreeT::Node *otherTree) {
     // Base case: if otherTree is null, set thisTree to null
     if (otherTree == nullptr) {
         thisTree = nullptr;
-    // General case: Create a new node in thisTree with the value from otherTree
+        // General case: Create a new node in thisTree with the value from otherTree
     } else {
         thisTree = new Node;
         thisTree->value = otherTree->value;
