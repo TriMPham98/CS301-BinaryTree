@@ -70,7 +70,7 @@ void TreeT<T>::Add(T value) {
             }
         }
     }
-    // Incrememnt the number of nodes
+    // Increment the number of nodes
     numNodes++;
 }
 
