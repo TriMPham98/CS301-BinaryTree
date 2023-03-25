@@ -40,7 +40,7 @@ void TreeT<T>::Add(T value) {
     if (root == nullptr) {
         // Set the new node as the root
         root = newChild;
-        // Increment the number of nodes
+        // Increment the number of nodes and return
         numNodes++;
         return;
     }
