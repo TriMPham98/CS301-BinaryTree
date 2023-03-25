@@ -223,12 +223,19 @@ void TreeT<T>::CopyHelper(TreeT::Node *&thisTree, TreeT::Node *otherTree) {
 
 template<class T>
 void TreeT<T>::PlacePreOrder(TreeT::Node *node) {
+    // Recursively traverse the tree in pre-order (root, left, right)
+    // and push node values into the iterator queue
+
+    // Base case: if the node is null, return
     if (node == nullptr) {
         return;
     }
 
+    // Push the current node's value to the iterator queue
     iterQue.push(node->value);
+    // Recursively traverse the left subtree
     PlacePreOrder((node->left));
+    // Recursively traverse the right subtree
     PlacePreOrder(node->right);
 }
 
