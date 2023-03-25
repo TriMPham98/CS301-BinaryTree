@@ -145,6 +145,7 @@ void TreeT<T>::DestroyTree(TreeT::Node *node) {
 
 template<class T>
 void TreeT<T>::RemoveHelper(TreeT::Node *&subtree, T value) {
+    // Recursive method to find and remove the node with the given value
     if (subtree == nullptr) {
         return;
     }
