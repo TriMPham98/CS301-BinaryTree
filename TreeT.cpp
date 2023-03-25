@@ -206,11 +206,16 @@ void TreeT<T>::GetPredecessor(TreeT::Node *curr, T &value) {
 
 template<class T>
 void TreeT<T>::CopyHelper(TreeT::Node *&thisTree, TreeT::Node *otherTree) {
+    // Recursive method to copy the structure and values of otherTree to thisTree
+
+    // Base case: if otherTree is null, set thisTree to null
     if (otherTree == nullptr) {
         thisTree = nullptr;
+    // General case: Create a new node in thisTree with the value from otherTree
     } else {
         thisTree = new Node;
         thisTree->value = otherTree->value;
+        // Recursively copy the left and right subtrees
         CopyHelper(thisTree->left, otherTree->left);
         CopyHelper(thisTree->right, otherTree->right);
     }
