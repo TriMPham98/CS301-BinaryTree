@@ -259,11 +259,18 @@ void TreeT<T>::PlacePostOrder(TreeT::Node *node) {
 
 template<class T>
 void TreeT<T>::PlaceInOrder(TreeT::Node *node) {
+    // Recursively traverse the tree in in-order (left, root, right)
+    // and push node values into the iterator queue
+
+    // Base case: if the node is null, return
     if (node == nullptr) {
         return;
     }
 
+    // Recursively traverse the left subtree
     PlaceInOrder((node->left));
+    // Push the current node's value to the iterator queue
     iterQue.push(node->value);
+    // Recursively traverse the right subtree
     PlaceInOrder(node->right);
 }
