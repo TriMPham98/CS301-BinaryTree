@@ -151,10 +151,18 @@ void TreeT<T>::RemoveHelper(TreeT::Node *&subtree, T value) {
     if (subtree == nullptr) {
         return;
     }
+
+    // If the value is less than the current subtree's value,
+    // search the left subtree
     if (value < subtree->value) {
         RemoveHelper(subtree->left, value);
+    // If the value is greater than the current subtree's value,
+    // search the right subtree
     } else if (value > subtree->value) {
         RemoveHelper(subtree->right, value);
+    // If the value matches the current subtree's value,
+    // delete the node and decrement the number of nodes
+    // after removal
     } else {
         DeleteNode(subtree);
         numNodes--;
