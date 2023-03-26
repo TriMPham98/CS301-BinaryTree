@@ -22,7 +22,10 @@ public:
     // to null and numNodes set to 0.
 
     ~TreeT();
-    //
+    // Preconditions: None.
+    // Postconditions: A new binary search tree object is
+    // created with root pointer set to null and numNodes
+    // set to 0.
 
     TreeT& operator=(const TreeT& otherTree);
 
