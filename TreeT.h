@@ -17,7 +17,12 @@ template<class T>
 class TreeT {
 public:
     TreeT();
+    // Preconditions: None.
+    // Postconditions: A new binary search tree object is created with root pointer set
+    // to null and numNodes set to 0.
+
     ~TreeT();
+    //
 
     TreeT& operator=(const TreeT& otherTree);
 
