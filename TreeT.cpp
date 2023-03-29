@@ -330,16 +330,23 @@ void TreeT<T>::PlacePreOrder(TreeT::Node *node) {
     // Recursively traverse the tree in pre-order (root, left, right)
     // and push node values into the iterator queue
 
-    // Base case: if the node is null, return
+//    // Base case: if the node is null, return
+//    if (node == nullptr) {
+//        return;
+//    }
+//
+//    // Push the current node's value to the iterator queue
+//    iterQue.push(node->value);
+//    // Recursively traverse the left subtree
+//    PlacePreOrder((node->left));
+//    // Recursively traverse the right subtree
+//    PlacePreOrder(node->right);
+
     if (node == nullptr) {
         return;
     }
-
-    // Push the current node's value to the iterator queue
     iterQue.push(node->value);
-    // Recursively traverse the left subtree
     PlacePreOrder((node->left));
-    // Recursively traverse the right subtree
     PlacePreOrder(node->right);
 }
 
@@ -348,16 +355,23 @@ void TreeT<T>::PlacePostOrder(TreeT::Node *node) {
     // Recursively traverse the tree in post-order (left, right, root)
     // and push node values into the iterator queue
 
-    // Base case: if the node is null, return
+//    // Base case: if the node is null, return
+//    if (node == nullptr) {
+//        return;
+//    }
+//
+//    // Recursively traverse the left subtree
+//    PlacePostOrder((node->left));
+//    // Recursively traverse the right subtree
+//    PlacePostOrder(node->right);
+//    // Push the current node's value to the iterator queue
+//    iterQue.push(node->value);
+
     if (node == nullptr) {
         return;
     }
-
-    // Recursively traverse the left subtree
     PlacePostOrder((node->left));
-    // Recursively traverse the right subtree
     PlacePostOrder(node->right);
-    // Push the current node's value to the iterator queue
     iterQue.push(node->value);
 }
 
@@ -366,15 +380,22 @@ void TreeT<T>::PlaceInOrder(TreeT::Node *node) {
     // Recursively traverse the tree in in-order (left, root, right)
     // and push node values into the iterator queue
 
-    // Base case: if the node is null, return
+//    // Base case: if the node is null, return
+//    if (node == nullptr) {
+//        return;
+//    }
+//
+//    // Recursively traverse the left subtree
+//    PlaceInOrder((node->left));
+//    // Push the current node's value to the iterator queue
+//    iterQue.push(node->value);
+//    // Recursively traverse the right subtree
+//    PlaceInOrder(node->right);
+
     if (node == nullptr) {
         return;
     }
-
-    // Recursively traverse the left subtree
     PlaceInOrder((node->left));
-    // Push the current node's value to the iterator queue
     iterQue.push(node->value);
-    // Recursively traverse the right subtree
     PlaceInOrder(node->right);
 }
