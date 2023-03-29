@@ -209,22 +209,35 @@ template<class T>
 void TreeT<T>::RemoveHelper(TreeT::Node *&subtree, T value) {
     // Recursive method to find and remove the node with the given value
 
-    // Base case: if the subtree is null, the value isn't found and there's nothing to remove
+//    // Base case: if the subtree is null, the value isn't found and there's nothing to remove
+//    if (subtree == nullptr) {
+//        return;
+//    }
+//
+//    // If the value is less than the current subtree's value,
+//    // search the left subtree
+//    if (value < subtree->value) {
+//        RemoveHelper(subtree->left, value);
+//        // If the value is greater than the current subtree's value,
+//        // search the right subtree
+//    } else if (value > subtree->value) {
+//        RemoveHelper(subtree->right, value);
+//        // If the value matches the current subtree's value,
+//        // delete the node and decrement the number of nodes
+//        // after removal
+//    } else {
+//        DeleteNode(subtree);
+//        numNodes--;
+//    }
+
     if (subtree == nullptr) {
         return;
     }
 
-    // If the value is less than the current subtree's value,
-    // search the left subtree
     if (value < subtree->value) {
         RemoveHelper(subtree->left, value);
-        // If the value is greater than the current subtree's value,
-        // search the right subtree
     } else if (value > subtree->value) {
         RemoveHelper(subtree->right, value);
-        // If the value matches the current subtree's value,
-        // delete the node and decrement the number of nodes
-        // after removal
     } else {
         DeleteNode(subtree);
         numNodes--;
