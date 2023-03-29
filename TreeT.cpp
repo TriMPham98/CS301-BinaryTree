@@ -15,16 +15,23 @@ TreeT<T>::~TreeT() {
 
 template<class T>
 TreeT<T> &TreeT<T>::operator=(const TreeT &otherTree) {
-    // Check if the current object is not the same as the other object
+//    // Check if the current object is not the same as the other object
+//    if (this != &otherTree) {
+//        // Destroy the current tree
+//        DestroyTree(root);
+//        // Copy the other tree using CopyHelper method
+//        CopyHelper(root, otherTree.root);
+//        // Assign the number of nodes from the other tree
+//        numNodes = otherTree.numNodes;
+//    }
+//    // Return the reference to the current object
+//    return *this;
+
     if (this != &otherTree) {
-        // Destroy the current tree
         DestroyTree(root);
-        // Copy the other tree using CopyHelper method
         CopyHelper(root, otherTree.root);
-        // Assign the number of nodes from the other tree
         numNodes = otherTree.numNodes;
     }
-    // Return the reference to the current object
     return *this;
 }
 
