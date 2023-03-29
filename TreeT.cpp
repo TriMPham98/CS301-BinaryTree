@@ -395,7 +395,7 @@ void TreeT<T>::PlaceInOrder(TreeT::Node *node) {
     if (node == nullptr) {
         return;
     }
-    PlaceInOrder((node->left));
+    PlaceInOrder(node->left);
     iterQue.push(node->value);
     PlaceInOrder(node->right);
 }
