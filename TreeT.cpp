@@ -370,7 +370,7 @@ void TreeT<T>::PlacePostOrder(TreeT::Node *node) {
     if (node == nullptr) {
         return;
     }
-    PlacePostOrder((node->left));
+    PlacePostOrder(node->left);
     PlacePostOrder(node->right);
     iterQue.push(node->value);
 }
