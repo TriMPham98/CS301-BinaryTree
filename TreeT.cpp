@@ -285,12 +285,17 @@ void TreeT<T>::DeleteNode(TreeT::Node *&subtree) {
 
 template<class T>
 void TreeT<T>::GetPredecessor(TreeT::Node *curr, T &value) {
-    // Find the maximum value in the left subtree
+//    // Find the maximum value in the left subtree
+//    while (curr->right != nullptr) {
+//        // Move right until the rightmost node is found
+//        curr = curr->right;
+//    }
+//    // Set the value to the rightmost node's value
+//    value = curr->value;
+
     while (curr->right != nullptr) {
-        // Move right until the rightmost node is found
         curr = curr->right;
     }
-    // Set the value to the rightmost node's value
     value = curr->value;
 }
 
