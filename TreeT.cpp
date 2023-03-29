@@ -248,20 +248,35 @@ template<class T>
 void TreeT<T>::DeleteNode(TreeT::Node *&subtree) {
     // Helper method to delete a node and maintain the BST property
 
+//    Node *temp;
+//
+//    // If the node has no left child, replace the node with its right subtree
+//    if (subtree->left == nullptr) {
+//        temp = subtree;
+//        subtree = subtree->right;
+//        delete temp;
+//        // If the node has no right child, replace the node with its left subtree
+//    } else if (subtree->right == nullptr) {
+//        temp = subtree;
+//        subtree = subtree->left;
+//        delete temp;
+//        // If the node has both left and right children, replace the node's value
+//        // with its predecessor's value
+//    } else {
+//        GetPredecessor(subtree->left, subtree->value);
+//        RemoveHelper(subtree->left, subtree->value);
+//    }
+
     Node *temp;
 
-    // If the node has no left child, replace the node with its right subtree
     if (subtree->left == nullptr) {
         temp = subtree;
         subtree = subtree->right;
         delete temp;
-        // If the node has no right child, replace the node with its left subtree
     } else if (subtree->right == nullptr) {
         temp = subtree;
         subtree = subtree->left;
         delete temp;
-        // If the node has both left and right children, replace the node's value
-        // with its predecessor's value
     } else {
         GetPredecessor(subtree->left, subtree->value);
         RemoveHelper(subtree->left, subtree->value);
