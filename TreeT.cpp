@@ -121,22 +121,34 @@ void TreeT<T>::Remove(T value) {
 
 template<class T>
 bool TreeT<T>::Contains(T value) {
-    // Start at the root node
+//    // Start at the root node
+//    Node *curr = root;
+//    // Traverse the tree to search for the given value
+//    while (curr != nullptr) {
+//        if (value < curr->value) {
+//            // Move to the left child
+//            curr = curr->left;
+//        } else if (value > curr->value) {
+//            // Move to the right child
+//            curr = curr->right;
+//        } else {
+//            // Value found
+//            return true;
+//        }
+//    }
+//    // Value not found
+//    return false;
+
     Node *curr = root;
-    // Traverse the tree to search for the given value
     while (curr != nullptr) {
         if (value < curr->value) {
-            // Move to the left child
             curr = curr->left;
         } else if (value > curr->value) {
-            // Move to the right child
             curr = curr->right;
         } else {
-            // Value found
             return true;
         }
     }
-    // Value not found
     return false;
 }
 
