@@ -160,11 +160,22 @@ int TreeT<T>::Size() {
 
 template<class T>
 void TreeT<T>::ResetIterator(Order traverseOrder) {
-    // Clear the iterator queue
+//    // Clear the iterator queue
+//    while (!iterQue.empty()) {
+//        iterQue.pop();
+//    }
+//    // Call the appropriate traversal method based on the given order
+//    if (traverseOrder == IN_ORDER) {
+//        PlaceInOrder(root);
+//    } else if (traverseOrder == PRE_ORDER) {
+//        PlacePreOrder(root);
+//    } else if (traverseOrder == POST_ORDER) {
+//        PlacePostOrder(root);
+//    }
+
     while (!iterQue.empty()) {
         iterQue.pop();
     }
-    // Call the appropriate traversal method based on the given order
     if (traverseOrder == IN_ORDER) {
         PlaceInOrder(root);
     } else if (traverseOrder == PRE_ORDER) {
