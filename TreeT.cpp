@@ -37,47 +37,79 @@ TreeT<T> &TreeT<T>::operator=(const TreeT &otherTree) {
 
 template<class T>
 void TreeT<T>::Add(T value) {
-    // Create a new node with the given value
+//    // Create a new node with the given value
+//    Node *newChild = new Node;
+//    newChild->left = nullptr;
+//    newChild->right = nullptr;
+//    newChild->value = value;
+//
+//    // Check if the tree is empty
+//    if (root == nullptr) {
+//        // Set the new node as the root
+//        root = newChild;
+//        // Increment the number of nodes and return
+//        numNodes++;
+//        return;
+//    }
+//
+//    // Start at the root node
+//    Node *curr = root;
+//
+//    // Traverse the tree to find the correct position for the new node
+//    while (true) {
+//        if (value < curr->value) {
+//            if (curr->left == nullptr) {
+//                // Insert the new node as the left child
+//                curr->left = newChild;
+//                break;
+//            }
+//            // Move to the left child
+//            curr = curr->left;
+//        } else {
+//            if (value > curr->value) {
+//                if (curr->right == nullptr) {
+//                    // Insert the new node as the right child
+//                    curr->right = newChild;
+//                    break;
+//                }
+//                // Move to the right child
+//                curr = curr->right;
+//            }
+//        }
+//    }
+//    // Increment the number of nodes
+//    numNodes++;
+
     Node *newChild = new Node;
     newChild->left = nullptr;
     newChild->right = nullptr;
     newChild->value = value;
 
-    // Check if the tree is empty
     if (root == nullptr) {
-        // Set the new node as the root
         root = newChild;
-        // Increment the number of nodes and return
         numNodes++;
         return;
     }
 
-    // Start at the root node
     Node *curr = root;
 
-    // Traverse the tree to find the correct position for the new node
     while (true) {
         if (value < curr->value) {
             if (curr->left == nullptr) {
-                // Insert the new node as the left child
                 curr->left = newChild;
                 break;
             }
-            // Move to the left child
             curr = curr->left;
         } else {
             if (value > curr->value) {
                 if (curr->right == nullptr) {
-                    // Insert the new node as the right child
                     curr->right = newChild;
                     break;
                 }
-                // Move to the right child
                 curr = curr->right;
             }
         }
     }
-    // Increment the number of nodes
     numNodes++;
 }
 
