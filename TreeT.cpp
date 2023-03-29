@@ -346,7 +346,7 @@ void TreeT<T>::PlacePreOrder(TreeT::Node *node) {
         return;
     }
     iterQue.push(node->value);
-    PlacePreOrder((node->left));
+    PlacePreOrder(node->left);
     PlacePreOrder(node->right);
 }
 
