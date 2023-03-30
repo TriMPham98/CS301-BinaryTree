@@ -1,23 +1,21 @@
 // Define a binary search tree class template with a type parameter T
-template<class T>
-TreeT<T>::TreeT() {
+
 //    // Initialize the root pointer to null
 //    root = nullptr;
 //    // Initialize the number of nodes as 0
 //    numNodes = 0;
-
+template<class T>
+TreeT<T>::TreeT() {
     root = nullptr;
     numNodes = 0;
 }
 
+// Call DestroyTree method to delete the tree
 template<class T>
 TreeT<T>::~TreeT() {
-    // Call DestroyTree method to delete the tree
     DestroyTree(root);
 }
 
-template<class T>
-TreeT<T> &TreeT<T>::operator=(const TreeT &otherTree) {
 //    // Check if the current object is not the same as the other object
 //    if (this != &otherTree) {
 //        // Destroy the current tree
@@ -29,7 +27,8 @@ TreeT<T> &TreeT<T>::operator=(const TreeT &otherTree) {
 //    }
 //    // Return the reference to the current object
 //    return *this;
-
+template<class T>
+TreeT<T> &TreeT<T>::operator=(const TreeT &otherTree) {
     if (this != &otherTree) {
         DestroyTree(root);
         CopyHelper(root, otherTree.root);
@@ -38,8 +37,6 @@ TreeT<T> &TreeT<T>::operator=(const TreeT &otherTree) {
     return *this;
 }
 
-template<class T>
-void TreeT<T>::Add(T value) {
 //    // Create a new node with the given value
 //    Node *newChild = new Node;
 //    newChild->left = nullptr;
@@ -82,7 +79,8 @@ void TreeT<T>::Add(T value) {
 //    }
 //    // Increment the number of nodes
 //    numNodes++;
-
+template<class T>
+void TreeT<T>::Add(T value) {
     Node *newChild = new Node;
     newChild->left = nullptr;
     newChild->right = nullptr;
@@ -116,14 +114,12 @@ void TreeT<T>::Add(T value) {
     numNodes++;
 }
 
+// Call the RemoveHelper method to remove the node with the given value
 template<class T>
 void TreeT<T>::Remove(T value) {
-    // Call the RemoveHelper method to remove the node with the given value
     RemoveHelper(root, value);
 }
 
-template<class T>
-bool TreeT<T>::Contains(T value) {
 //    // Start at the root node
 //    Node *curr = root;
 //    // Traverse the tree to search for the given value
@@ -141,7 +137,8 @@ bool TreeT<T>::Contains(T value) {
 //    }
 //    // Value not found
 //    return false;
-
+template<class T>
+bool TreeT<T>::Contains(T value) {
     Node *curr = root;
     while (curr != nullptr) {
         if (value < curr->value) {
@@ -155,14 +152,12 @@ bool TreeT<T>::Contains(T value) {
     return false;
 }
 
+// Return the number of nodes in the tree
 template<class T>
 int TreeT<T>::Size() {
-    // Return the number of nodes in the tree
     return numNodes;
 }
 
-template<class T>
-void TreeT<T>::ResetIterator(Order traverseOrder) {
 //    // Clear the iterator queue
 //    while (!iterQue.empty()) {
 //        iterQue.pop();
@@ -175,7 +170,8 @@ void TreeT<T>::ResetIterator(Order traverseOrder) {
 //    } else if (traverseOrder == POST_ORDER) {
 //        PlacePostOrder(root);
 //    }
-
+template<class T>
+void TreeT<T>::ResetIterator(Order traverseOrder) {
     while (!iterQue.empty()) {
         iterQue.pop();
     }
@@ -188,24 +184,23 @@ void TreeT<T>::ResetIterator(Order traverseOrder) {
     }
 }
 
-template<class T>
-T TreeT<T>::GetNextItem() {
 //    // Get the next item from the iterator queue
 //    T nextItem = iterQue.front();
 //    iterQue.pop();
 //
 //    // Return the next item
 //    return nextItem;
-
+template<class T>
+T TreeT<T>::GetNextItem() {
     T nextItem = iterQue.front();
     iterQue.pop();
 
     return nextItem;
 }
 
+// Recursively delete the nodes in the tree using post-order traversal
 template<class T>
 void TreeT<T>::DestroyTree(TreeT::Node *node) {
-    // Recursively delete the nodes in the tree using post-order traversal
     if (node != nullptr) {
         DestroyTree(node->left);
         DestroyTree(node->right);
@@ -213,9 +208,7 @@ void TreeT<T>::DestroyTree(TreeT::Node *node) {
     }
 }
 
-template<class T>
-void TreeT<T>::RemoveHelper(TreeT::Node *&subtree, T value) {
-    // Recursive method to find and remove the node with the given value
+// Recursive method to find and remove the node with the given value
 
 //    // Base case: if the subtree is null, the value isn't found and there's nothing to remove
 //    if (subtree == nullptr) {
@@ -237,7 +230,8 @@ void TreeT<T>::RemoveHelper(TreeT::Node *&subtree, T value) {
 //        DeleteNode(subtree);
 //        numNodes--;
 //    }
-
+template<class T>
+void TreeT<T>::RemoveHelper(TreeT::Node *&subtree, T value) {
     if (subtree == nullptr) {
         return;
     }
@@ -252,9 +246,7 @@ void TreeT<T>::RemoveHelper(TreeT::Node *&subtree, T value) {
     }
 }
 
-template<class T>
-void TreeT<T>::DeleteNode(TreeT::Node *&subtree) {
-    // Helper method to delete a node and maintain the BST property
+// Helper method to delete a node and maintain the BST property
 
 //    Node *temp;
 //
@@ -274,7 +266,8 @@ void TreeT<T>::DeleteNode(TreeT::Node *&subtree) {
 //        GetPredecessor(subtree->left, subtree->value);
 //        RemoveHelper(subtree->left, subtree->value);
 //    }
-
+template<class T>
+void TreeT<T>::DeleteNode(TreeT::Node *&subtree) {
     Node *temp;
 
     if (subtree->left == nullptr) {
@@ -291,8 +284,6 @@ void TreeT<T>::DeleteNode(TreeT::Node *&subtree) {
     }
 }
 
-template<class T>
-void TreeT<T>::GetPredecessor(TreeT::Node *curr, T &value) {
 //    // Find the maximum value in the left subtree
 //    while (curr->right != nullptr) {
 //        // Move right until the rightmost node is found
@@ -300,16 +291,15 @@ void TreeT<T>::GetPredecessor(TreeT::Node *curr, T &value) {
 //    }
 //    // Set the value to the rightmost node's value
 //    value = curr->value;
-
+template<class T>
+void TreeT<T>::GetPredecessor(TreeT::Node *curr, T &value) {
     while (curr->right != nullptr) {
         curr = curr->right;
     }
     value = curr->value;
 }
 
-template<class T>
-void TreeT<T>::CopyHelper(TreeT::Node *&thisTree, TreeT::Node *otherTree) {
-    // Recursive method to copy the structure and values of otherTree to thisTree
+// Recursive method to copy the structure and values of otherTree to thisTree
 
 //    // Base case: if otherTree is null, set thisTree to null
 //    if (otherTree == nullptr) {
@@ -322,7 +312,8 @@ void TreeT<T>::CopyHelper(TreeT::Node *&thisTree, TreeT::Node *otherTree) {
 //        CopyHelper(thisTree->left, otherTree->left);
 //        CopyHelper(thisTree->right, otherTree->right);
 //    }
-
+template<class T>
+void TreeT<T>::CopyHelper(TreeT::Node *&thisTree, TreeT::Node *otherTree) {
     if (otherTree == nullptr) {
         thisTree = nullptr;
     } else {
@@ -333,10 +324,8 @@ void TreeT<T>::CopyHelper(TreeT::Node *&thisTree, TreeT::Node *otherTree) {
     }
 }
 
-template<class T>
-void TreeT<T>::PlacePreOrder(TreeT::Node *node) {
-    // Recursively traverse the tree in pre-order (root, left, right)
-    // and push node values into the iterator queue
+// Recursively traverse the tree in pre-order (root, left, right)
+// and push node values into the iterator queue
 
 //    // Base case: if the node is null, return
 //    if (node == nullptr) {
@@ -349,7 +338,8 @@ void TreeT<T>::PlacePreOrder(TreeT::Node *node) {
 //    PlacePreOrder((node->left));
 //    // Recursively traverse the right subtree
 //    PlacePreOrder(node->right);
-
+template<class T>
+void TreeT<T>::PlacePreOrder(TreeT::Node *node) {
     if (node == nullptr) {
         return;
     }
@@ -358,10 +348,8 @@ void TreeT<T>::PlacePreOrder(TreeT::Node *node) {
     PlacePreOrder(node->right);
 }
 
-template<class T>
-void TreeT<T>::PlacePostOrder(TreeT::Node *node) {
-    // Recursively traverse the tree in post-order (left, right, root)
-    // and push node values into the iterator queue
+// Recursively traverse the tree in post-order (left, right, root)
+// and push node values into the iterator queue
 
 //    // Base case: if the node is null, return
 //    if (node == nullptr) {
@@ -374,7 +362,8 @@ void TreeT<T>::PlacePostOrder(TreeT::Node *node) {
 //    PlacePostOrder(node->right);
 //    // Push the current node's value to the iterator queue
 //    iterQue.push(node->value);
-
+template<class T>
+void TreeT<T>::PlacePostOrder(TreeT::Node *node) {
     if (node == nullptr) {
         return;
     }
@@ -383,10 +372,8 @@ void TreeT<T>::PlacePostOrder(TreeT::Node *node) {
     iterQue.push(node->value);
 }
 
-template<class T>
-void TreeT<T>::PlaceInOrder(TreeT::Node *node) {
-    // Recursively traverse the tree in in-order (left, root, right)
-    // and push node values into the iterator queue
+// Recursively traverse the tree in in-order (left, root, right)
+// and push node values into the iterator queue
 
 //    // Base case: if the node is null, return
 //    if (node == nullptr) {
@@ -399,7 +386,8 @@ void TreeT<T>::PlaceInOrder(TreeT::Node *node) {
 //    iterQue.push(node->value);
 //    // Recursively traverse the right subtree
 //    PlaceInOrder(node->right);
-
+template<class T>
+void TreeT<T>::PlaceInOrder(TreeT::Node *node) {
     if (node == nullptr) {
         return;
     }
