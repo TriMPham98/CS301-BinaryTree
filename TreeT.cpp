@@ -187,11 +187,16 @@ void TreeT<T>::ResetIterator(Order traverseOrder) {
 
 template<class T>
 T TreeT<T>::GetNextItem() {
-    // Get the next item from the iterator queue
+//    // Get the next item from the iterator queue
+//    T nextItem = iterQue.front();
+//    iterQue.pop();
+//
+//    // Return the next item
+//    return nextItem;
+
     T nextItem = iterQue.front();
     iterQue.pop();
 
-    // Return the next item
     return nextItem;
 }
 
