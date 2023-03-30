@@ -1,9 +1,12 @@
 // Define a binary search tree class template with a type parameter T
 template<class T>
 TreeT<T>::TreeT() {
-    // Initialize the root pointer to null
+//    // Initialize the root pointer to null
+//    root = nullptr;
+//    // Initialize the number of nodes as 0
+//    numNodes = 0;
+
     root = nullptr;
-    // Initialize the number of nodes as 0
     numNodes = 0;
 }
 
