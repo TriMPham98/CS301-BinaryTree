@@ -10,11 +10,15 @@ TreeT<T>::TreeT() {
     numNodes = 0;
 }
 
+
+
 // Call DestroyTree method to delete the tree
 template<class T>
 TreeT<T>::~TreeT() {
     DestroyTree(root);
 }
+
+
 
 //    // Check if the current object is not the same as the other object
 //    if (this != &otherTree) {
@@ -36,6 +40,8 @@ TreeT<T> &TreeT<T>::operator=(const TreeT &otherTree) {
     }
     return *this;
 }
+
+
 
 //    // Create a new node with the given value
 //    Node *newChild = new Node;
@@ -114,6 +120,8 @@ void TreeT<T>::Add(T value) {
     numNodes++;
 }
 
+
+
 // Call the RemoveHelper method to remove the node with the given value
 template<class T>
 void TreeT<T>::Remove(T value) {
@@ -152,6 +160,8 @@ bool TreeT<T>::Contains(T value) {
     return false;
 }
 
+
+
 // Return the number of nodes in the tree
 template<class T>
 int TreeT<T>::Size() {
@@ -184,6 +194,8 @@ void TreeT<T>::ResetIterator(Order traverseOrder) {
     }
 }
 
+
+
 //    // Get the next item from the iterator queue
 //    T nextItem = iterQue.front();
 //    iterQue.pop();
@@ -198,6 +210,8 @@ T TreeT<T>::GetNextItem() {
     return nextItem;
 }
 
+
+
 // Recursively delete the nodes in the tree using post-order traversal
 template<class T>
 void TreeT<T>::DestroyTree(TreeT::Node *node) {
@@ -207,6 +221,8 @@ void TreeT<T>::DestroyTree(TreeT::Node *node) {
         delete node;
     }
 }
+
+
 
 // Recursive method to find and remove the node with the given value
 
@@ -246,6 +262,8 @@ void TreeT<T>::RemoveHelper(TreeT::Node *&subtree, T value) {
     }
 }
 
+
+
 // Helper method to delete a node and maintain the BST property
 
 //    Node *temp;
@@ -284,6 +302,8 @@ void TreeT<T>::DeleteNode(TreeT::Node *&subtree) {
     }
 }
 
+
+
 //    // Find the maximum value in the left subtree
 //    while (curr->right != nullptr) {
 //        // Move right until the rightmost node is found
@@ -298,6 +318,8 @@ void TreeT<T>::GetPredecessor(TreeT::Node *curr, T &value) {
     }
     value = curr->value;
 }
+
+
 
 // Recursive method to copy the structure and values of otherTree to thisTree
 
@@ -324,6 +346,8 @@ void TreeT<T>::CopyHelper(TreeT::Node *&thisTree, TreeT::Node *otherTree) {
     }
 }
 
+
+
 // Recursively traverse the tree in pre-order (root, left, right)
 // and push node values into the iterator queue
 
@@ -348,6 +372,8 @@ void TreeT<T>::PlacePreOrder(TreeT::Node *node) {
     PlacePreOrder(node->right);
 }
 
+
+
 // Recursively traverse the tree in post-order (left, right, root)
 // and push node values into the iterator queue
 
@@ -371,6 +397,8 @@ void TreeT<T>::PlacePostOrder(TreeT::Node *node) {
     PlacePostOrder(node->right);
     iterQue.push(node->value);
 }
+
+
 
 // Recursively traverse the tree in in-order (left, root, right)
 // and push node values into the iterator queue
