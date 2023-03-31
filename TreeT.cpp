@@ -18,6 +18,17 @@ TreeT<T>::~TreeT() {
 }
 
 
+// Recursively delete the nodes in the tree using post-order traversal
+template<class T>
+void TreeT<T>::DestroyTree(TreeT::Node *node) {
+    if (node != nullptr) {
+        DestroyTree(node->left);
+        DestroyTree(node->right);
+        delete node;
+    }
+}
+
+
 //    // Check if the current object is not the same as the other object
 //    if (this != &otherTree) {
 //        // Destroy the current tree
@@ -35,6 +46,32 @@ TreeT<T> &TreeT<T>::operator=(const TreeT &otherTree) {
         DestroyTree(root);
         CopyHelper(root, otherTree.root);
         numNodes = otherTree.numNodes;
+    }
+}
+
+
+// Recursive method to copy the structure and values of otherTree to thisTree
+
+//    // Base case: if otherTree is null, set thisTree to null
+//    if (otherTree == nullptr) {
+//        thisTree = nullptr;
+//        // General case: Create a new node in thisTree with the value from otherTree
+//    } else {
+//        thisTree = new Node;
+//        thisTree->value = otherTree->value;
+//        // Recursively copy the left and right subtrees
+//        CopyHelper(thisTree->left, otherTree->left);
+//        CopyHelper(thisTree->right, otherTree->right);
+//    }
+template<class T>
+void TreeT<T>::CopyHelper(TreeT::Node *&thisTree, TreeT::Node *otherTree) {
+    if (otherTree == nullptr) {
+        thisTree = nullptr;
+    } else {
+        thisTree = new Node;
+        thisTree->value = otherTree->value;
+        CopyHelper(thisTree->left, otherTree->left);
+        CopyHelper(thisTree->right, otherTree->right);
     }
 }
 
@@ -121,98 +158,6 @@ void TreeT<T>::Add(T value) {
 template<class T>
 void TreeT<T>::Remove(T value) {
     RemoveHelper(root, value);
-}
-
-
-//    // Start at the root node
-//    Node *curr = root;
-//    // Traverse the tree to search for the given value
-//    while (curr != nullptr) {
-//        if (value < curr->value) {
-//            // Move to the left child
-//            curr = curr->left;
-//        } else if (value > curr->value) {
-//            // Move to the right child
-//            curr = curr->right;
-//        } else {
-//            // Value found
-//            return true;
-//        }
-//    }
-//    // Value not found
-//    return false;
-template<class T>
-bool TreeT<T>::Contains(T value) {
-    Node *curr = root;
-    while (curr != nullptr) {
-        if (value < curr->value) {
-            curr = curr->left;
-        } else if (value > curr->value) {
-            curr = curr->right;
-        } else {
-            return true;
-        }
-    }
-    return false;
-}
-
-
-// Return the number of nodes in the tree
-template<class T>
-int TreeT<T>::Size() {
-    return numNodes;
-}
-
-//    // Clear the iterator queue
-//    while (!iterQue.empty()) {
-//        iterQue.pop();
-//    }
-//    // Call the appropriate traversal method based on the given order
-//    if (traverseOrder == IN_ORDER) {
-//        PlaceInOrder(root);
-//    } else if (traverseOrder == PRE_ORDER) {
-//        PlacePreOrder(root);
-//    } else if (traverseOrder == POST_ORDER) {
-//        PlacePostOrder(root);
-//    }
-template<class T>
-void TreeT<T>::ResetIterator(Order traverseOrder) {
-    while (!iterQue.empty()) {
-        iterQue.pop();
-    }
-    if (traverseOrder == IN_ORDER) {
-        PlaceInOrder(root);
-    } else if (traverseOrder == PRE_ORDER) {
-        PlacePreOrder(root);
-    } else if (traverseOrder == POST_ORDER) {
-        PlacePostOrder(root);
-    }
-}
-
-
-//    // Get the next item from the iterator queue
-//    T nextItem = iterQue.front();
-//    iterQue.pop();
-//
-//    // Return the next item
-//    return nextItem;
-template<class T>
-T TreeT<T>::GetNextItem() {
-    T nextItem = iterQue.front();
-    iterQue.pop();
-
-    return nextItem;
-}
-
-
-// Recursively delete the nodes in the tree using post-order traversal
-template<class T>
-void TreeT<T>::DestroyTree(TreeT::Node *node) {
-    if (node != nullptr) {
-        DestroyTree(node->left);
-        DestroyTree(node->right);
-        delete node;
-    }
 }
 
 
@@ -310,31 +255,85 @@ void TreeT<T>::GetPredecessor(TreeT::Node *curr, T &value) {
 }
 
 
-// Recursive method to copy the structure and values of otherTree to thisTree
+//    // Start at the root node
+//    Node *curr = root;
+//    // Traverse the tree to search for the given value
+//    while (curr != nullptr) {
+//        if (value < curr->value) {
+//            // Move to the left child
+//            curr = curr->left;
+//        } else if (value > curr->value) {
+//            // Move to the right child
+//            curr = curr->right;
+//        } else {
+//            // Value found
+//            return true;
+//        }
+//    }
+//    // Value not found
+//    return false;
+template<class T>
+bool TreeT<T>::Contains(T value) {
+    Node *curr = root;
+    while (curr != nullptr) {
+        if (value < curr->value) {
+            curr = curr->left;
+        } else if (value > curr->value) {
+            curr = curr->right;
+        } else {
+            return true;
+        }
+    }
+    return false;
+}
 
-//    // Base case: if otherTree is null, set thisTree to null
-//    if (otherTree == nullptr) {
-//        thisTree = nullptr;
-//        // General case: Create a new node in thisTree with the value from otherTree
-//    } else {
-//        thisTree = new Node;
-//        thisTree->value = otherTree->value;
-//        // Recursively copy the left and right subtrees
-//        CopyHelper(thisTree->left, otherTree->left);
-//        CopyHelper(thisTree->right, otherTree->right);
+
+// Return the number of nodes in the tree
+template<class T>
+int TreeT<T>::Size() {
+    return numNodes;
+}
+
+//    // Clear the iterator queue
+//    while (!iterQue.empty()) {
+//        iterQue.pop();
+//    }
+//    // Call the appropriate traversal method based on the given order
+//    if (traverseOrder == IN_ORDER) {
+//        PlaceInOrder(root);
+//    } else if (traverseOrder == PRE_ORDER) {
+//        PlacePreOrder(root);
+//    } else if (traverseOrder == POST_ORDER) {
+//        PlacePostOrder(root);
 //    }
 template<class T>
-void TreeT<T>::CopyHelper(TreeT::Node *&thisTree, TreeT::Node *otherTree) {
-    if (otherTree == nullptr) {
-        thisTree = nullptr;
-    } else {
-        thisTree = new Node;
-        thisTree->value = otherTree->value;
-        CopyHelper(thisTree->left, otherTree->left);
-        CopyHelper(thisTree->right, otherTree->right);
+void TreeT<T>::ResetIterator(Order traverseOrder) {
+    while (!iterQue.empty()) {
+        iterQue.pop();
+    }
+    if (traverseOrder == IN_ORDER) {
+        PlaceInOrder(root);
+    } else if (traverseOrder == PRE_ORDER) {
+        PlacePreOrder(root);
+    } else if (traverseOrder == POST_ORDER) {
+        PlacePostOrder(root);
     }
 }
 
+
+//    // Get the next item from the iterator queue
+//    T nextItem = iterQue.front();
+//    iterQue.pop();
+//
+//    // Return the next item
+//    return nextItem;
+template<class T>
+T TreeT<T>::GetNextItem() {
+    T nextItem = iterQue.front();
+    iterQue.pop();
+
+    return nextItem;
+}
 
 
 // Recursively traverse the tree in pre-order (root, left, right)
