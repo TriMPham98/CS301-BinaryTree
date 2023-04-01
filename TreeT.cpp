@@ -27,6 +27,7 @@ TreeT<T> &TreeT<T>::operator=(const TreeT &otherTree) {
         CopyHelper(root, otherTree.root);
         numNodes = otherTree.numNodes;
     }
+    return *this;
 }
 
 template<class T>
