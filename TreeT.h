@@ -83,19 +83,64 @@ private:
 
     // Used for de-constructor
     void DestroyTree(Node* node);
+    // Preconditions: The function accepts a valid Node pointer, node,
+    // which can be either a valid node or nullptr.
+    // Postconditions: The tree rooted at node is recursively deleted using
+    // post-order traversal, deallocating memory and avoiding memory leaks.
 
     // Used for Node removal
     void RemoveHelper(Node*& subtree, T value);
+    // Preconditions: The function accepts a valid Node reference and a value
+    // of type T as input. The subtree parameter is a reference to a node
+    // pointer that can be either a valid node or nullptr.
+    // Postconditions: If the node with the given value is found in the
+    // subtree rooted at subtree, the node is removed while maintaining the
+    // BST property. If the node with the given value is not found, no
+    // modifications are made to the tree. The numNodes value is decremented
+    // by 1 if the node is removed.
+
     void DeleteNode(Node*& subtree);
+    // Preconditions: The function accepts a valid Node reference, subtree,
+    // which points to a valid node in the BST.
+    // Postconditions: The node pointed to by subtree is deleted, and
+    // the BST property is maintained.
+
     void GetPredecessor(Node* curr, T& value);
+    // Preconditions: The function accepts a valid Node pointer, curr, and
+    // a reference to a value of type T. The curr pointer should point to
+    // a valid node in the BST.
+    // Postconditions: The maximum value in the left subtree of the node
+    // pointed to by curr is found and stored in the reference value.
 
     void CopyHelper(Node*& thisTree, Node* otherTree);
+    // Preconditions: The function accepts two valid Node pointers, thisTree
+    // and otherTree. thisTree may be uninitialized, and otherTree may be
+    // either a valid node or nullptr.
+    // Postconditions: The structure and values of otherTree are
+    // recursively copied to thisTree.
 
     // Used for iterator
     queue<T> iterQue;     // queue used for the iterator
     void PlacePreOrder(Node* node);
+    // Preconditions: The function accepts a valid Node pointer, node, which
+    // can be either a valid node or nullptr.
+    // Postconditions: The tree rooted at node is recursively traversed in
+    // pre-order (root, left, right) and the node values are pushed into
+    // the iterQue queue.
+
     void PlacePostOrder(Node* node);
+    // Preconditions: The function accepts a valid Node pointer, node, which
+    // can be either a valid node or nullptr.
+    // Postconditions: The tree rooted at node is recursively traversed in
+    // post-order (left, right, root) and the node values are pushed into
+    // the iterQue queue.
+
     void PlaceInOrder(Node* node);
+    // Preconditions: The function accepts a valid Node pointer, node, which
+    // can be either a valid node or nullptr.
+    // Postconditions: The tree rooted at node is recursively traversed in
+    // in-order (left, root, right) and the node values are pushed into
+    // the iterQue queue.
 };
 
 
