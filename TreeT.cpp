@@ -1,5 +1,3 @@
-// Define a binary search tree class template with a type parameter T
-
 template<class T>
 TreeT<T>::TreeT() {
     root = nullptr;
