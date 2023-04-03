@@ -21,6 +21,14 @@ public:
     // Postconditions: A new binary search tree object is created
     // with root pointer set to null and numNodes set to 0.
 
+    TreeT(const TreeT<T>& otherTree);
+    // Preconditions: The TreeT class must be instantiated with a default
+    // constructor or an existing TreeT object. The otherTree parameter
+    // must be a valid TreeT object.
+    // Postconditions: The new TreeT object is a deep copy of the otherTree object.
+    // The new TreeT object has the same number of nodes as the otherTree object.
+    // The otherTree object is unchanged.
+
     ~TreeT();
     // Preconditions: None.
     // Postconditions: A new binary search tree object is

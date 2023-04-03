@@ -5,6 +5,15 @@ TreeT<T>::TreeT() {
 }
 
 template<class T>
+TreeT<T>::TreeT(const TreeT<T>& otherTree) {
+    root = nullptr;
+    numNodes = 0;
+
+    CopyHelper(root, otherTree.root);
+    numNodes = otherTree.numNodes;
+}
+
+template<class T>
 TreeT<T>::~TreeT() {
     DestroyTree(root);
 }
