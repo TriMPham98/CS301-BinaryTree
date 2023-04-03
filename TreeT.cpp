@@ -5,7 +5,7 @@ TreeT<T>::TreeT() {
 }
 
 template<class T>
-TreeT<T>::TreeT(const TreeT<T>& otherTree) {
+TreeT<T>::TreeT(const TreeT<T> &otherTree) {
     root = nullptr;
     numNodes = 0;
 
